@@ -14,10 +14,11 @@ config.api_key['api-key'] = api_key
 config.host = host
 
 api_client = rokka_client_codegen.ApiClient(config)
-api_instance = rokka_client_codegen.StacksApi(api_client)
+api_instance = rokka_client_codegen.SourceimagesApi(api_client)
 
 try:
-    api_response = api_instance.list_stacks('test')
-    pprint(api_response)
+    api_response = api_instance.create_source_image(filedata="image.png", organization=organization)
+    pprint(api_response.items)
+    print("\nHash is " + api_response.items[0].hash)
 except ApiException as e:
     print("Exception when calling StacksApi->list_stacks: %s\n" % e)

@@ -17,7 +17,9 @@ api_client = rokka_client_codegen.ApiClient(config)
 api_instance = rokka_client_codegen.StacksApi(api_client)
 
 try:
-    api_response = api_instance.list_stacks('test')
+    operation = rokka_client_codegen.StackOperation(name="resize", options={"width": 500, "height": 500})
+    stack = rokka_client_codegen.StackDefinition(stack_operations=[operation], stack_options={"autoformat": True})
+    api_response = api_instance.create_stack(stack_definition=stack, organization=organization, name="foo", overwrite=True)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling StacksApi->list_stacks: %s\n" % e)
