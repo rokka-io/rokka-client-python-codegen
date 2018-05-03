@@ -76,6 +76,7 @@ Class | Method | HTTP request | Description
 *SourceimagesApi* | [**list_source_images_by_binary_hash**](docs/SourceimagesApi.md#list_source_images_by_binary_hash) | **GET** /sourceimages/{organization}/binaryhash/{binaryHash} | Get all images in this organization that match a binaryhash.
 *SourceimagesApi* | [**patch_source_image_meta_user**](docs/SourceimagesApi.md#patch_source_image_meta_user) | **PATCH** /sourceimages/{organization}/{hash}/meta/user | Update the specified meta data fields for an image.
 *SourceimagesApi* | [**restore_source_image**](docs/SourceimagesApi.md#restore_source_image) | **POST** /sourceimages/{organization}/{hash}/restore | Restore source image including previously set metadata.
+*SourceimagesApi* | [**sourceimages_organization_hash_copy_post**](docs/SourceimagesApi.md#sourceimages_organization_hash_copy_post) | **POST** /sourceimages/{organization}/{hash}/copy | Copy a single source image to another org.
 *StacksApi* | [**create_stack**](docs/StacksApi.md#create_stack) | **PUT** /stacks/{organization}/{name} | Create a new stack.
 *StacksApi* | [**delete_stack**](docs/StacksApi.md#delete_stack) | **DELETE** /stacks/{organization}/{name} | Delete a stack.
 *StacksApi* | [**get_stack**](docs/StacksApi.md#get_stack) | **GET** /stacks/{organization}/{name} | Get a single stack.
