@@ -1,0 +1,13 @@
+diff --git a/.travis.yml b/.travis.yml
+index 86211e2..8caa290 100644
+--- a/.travis.yml
++++ b/.travis.yml
+@@ -2,7 +2,7 @@
+ language: python
+ python:
+   - "2.7"
+-  - "3.2"
++#  - "3.2"
+   - "3.3"
+   - "3.4"
+   - "3.5"
