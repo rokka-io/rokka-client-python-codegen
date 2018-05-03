@@ -4,6 +4,7 @@ All URIs are relative to *https://api.rokka.io/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**copy_source_image**](SourceimagesApi.md#copy_source_image) | **POST** /sourceimages/{organization}/{hash}/copy | Copy a single source image to another org.
 [**create_source_image**](SourceimagesApi.md#create_source_image) | **POST** /sourceimages/{organization} | Upload new source images.
 [**create_source_image_meta_dynamic_with_name**](SourceimagesApi.md#create_source_image_meta_dynamic_with_name) | **PUT** /sourceimages/{organization}/{hash}/meta/dynamic/{metaName} | Adds or updates a specific dynamic meta data for an image.
 [**create_source_image_meta_user**](SourceimagesApi.md#create_source_image_meta_user) | **PUT** /sourceimages/{organization}/{hash}/meta/user | Replace the image meta data with new information.
@@ -20,8 +21,66 @@ Method | HTTP request | Description
 [**list_source_images_by_binary_hash**](SourceimagesApi.md#list_source_images_by_binary_hash) | **GET** /sourceimages/{organization}/binaryhash/{binaryHash} | Get all images in this organization that match a binaryhash.
 [**patch_source_image_meta_user**](SourceimagesApi.md#patch_source_image_meta_user) | **PATCH** /sourceimages/{organization}/{hash}/meta/user | Update the specified meta data fields for an image.
 [**restore_source_image**](SourceimagesApi.md#restore_source_image) | **POST** /sourceimages/{organization}/{hash}/restore | Restore source image including previously set metadata.
-[**sourceimages_organization_hash_copy_post**](SourceimagesApi.md#sourceimages_organization_hash_copy_post) | **POST** /sourceimages/{organization}/{hash}/copy | Copy a single source image to another org.
 
+
+# **copy_source_image**
+> copy_source_image(destination, organization, hash, overwrite=overwrite)
+
+Copy a single source image to another org.
+
+The metadata is copied as well. After copying, changes to either image metadata are not reflected in the other image metadata.  This is a proxy method for COPY on /sourceimages/{organization}/{hash}. It allows to copy images with a POST request, to work around restrictive firewalls and allows to produce a swagger specification for this operation.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import rokka_client_codegen
+from rokka_client_codegen.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: ApiKeyAuth
+configuration = rokka_client_codegen.Configuration()
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['api-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = rokka_client_codegen.SourceimagesApi(rokka_client_codegen.ApiClient(configuration))
+destination = 'destination_example' # str | The destination organization
+organization = 'organization_example' # str | 
+hash = 'hash_example' # str | 
+overwrite = 'overwrite_example' # str | If set to 'F', existing images won't be overwritten. (optional)
+
+try:
+    # Copy a single source image to another org.
+    api_instance.copy_source_image(destination, organization, hash, overwrite=overwrite)
+except ApiException as e:
+    print("Exception when calling SourceimagesApi->copy_source_image: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **destination** | **str**| The destination organization | 
+ **organization** | **str**|  | 
+ **hash** | **str**|  | 
+ **overwrite** | **str**| If set to &#39;F&#39;, existing images won&#39;t be overwritten. | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_source_image**
 > ListSourceImagesResponse create_source_image(filedata, organization, meta_dynamic=meta_dynamic, meta_user=meta_user)
@@ -923,65 +982,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SourceImage**](SourceImage.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **sourceimages_organization_hash_copy_post**
-> sourceimages_organization_hash_copy_post(destination, organization, hash, overwrite=overwrite)
-
-Copy a single source image to another org.
-
-The metadata is copied as well. After copying, changes to either image metadata are not reflected in the other image metadata.  This is a proxy method for COPY on /sourceimages/{organization}/{hash}. It allows to copy images with a POST request, to work around restrictive firewalls and allows to produce a swagger specification for this operation.
-
-### Example
-```python
-from __future__ import print_function
-import time
-import rokka_client_codegen
-from rokka_client_codegen.rest import ApiException
-from pprint import pprint
-
-# Configure API key authorization: ApiKeyAuth
-configuration = rokka_client_codegen.Configuration()
-configuration.api_key['api-key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['api-key'] = 'Bearer'
-
-# create an instance of the API class
-api_instance = rokka_client_codegen.SourceimagesApi(rokka_client_codegen.ApiClient(configuration))
-destination = 'destination_example' # str | The destination organization
-organization = 'organization_example' # str | 
-hash = 'hash_example' # str | 
-overwrite = 'overwrite_example' # str | If set to 'F', existing images won't be overwritten. (optional)
-
-try:
-    # Copy a single source image to another org.
-    api_instance.sourceimages_organization_hash_copy_post(destination, organization, hash, overwrite=overwrite)
-except ApiException as e:
-    print("Exception when calling SourceimagesApi->sourceimages_organization_hash_copy_post: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **destination** | **str**| The destination organization | 
- **organization** | **str**|  | 
- **hash** | **str**|  | 
- **overwrite** | **str**| If set to &#39;F&#39;, existing images won&#39;t be overwritten. | [optional] 
-
-### Return type
-
-void (empty response body)
 
 ### Authorization
 

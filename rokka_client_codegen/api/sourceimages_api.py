@@ -33,6 +33,121 @@ class SourceimagesApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def copy_source_image(self, destination, organization, hash, **kwargs):  # noqa: E501
+        """Copy a single source image to another org.  # noqa: E501
+
+        The metadata is copied as well. After copying, changes to either image metadata are not reflected in the other image metadata.  This is a proxy method for COPY on /sourceimages/{organization}/{hash}. It allows to copy images with a POST request, to work around restrictive firewalls and allows to produce a swagger specification for this operation.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.copy_source_image(destination, organization, hash, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str destination: The destination organization (required)
+        :param str organization: (required)
+        :param str hash: (required)
+        :param str overwrite: If set to 'F', existing images won't be overwritten.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('async'):
+            return self.copy_source_image_with_http_info(destination, organization, hash, **kwargs)  # noqa: E501
+        else:
+            (data) = self.copy_source_image_with_http_info(destination, organization, hash, **kwargs)  # noqa: E501
+            return data
+
+    def copy_source_image_with_http_info(self, destination, organization, hash, **kwargs):  # noqa: E501
+        """Copy a single source image to another org.  # noqa: E501
+
+        The metadata is copied as well. After copying, changes to either image metadata are not reflected in the other image metadata.  This is a proxy method for COPY on /sourceimages/{organization}/{hash}. It allows to copy images with a POST request, to work around restrictive firewalls and allows to produce a swagger specification for this operation.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async=True
+        >>> thread = api.copy_source_image_with_http_info(destination, organization, hash, async=True)
+        >>> result = thread.get()
+
+        :param async bool
+        :param str destination: The destination organization (required)
+        :param str organization: (required)
+        :param str hash: (required)
+        :param str overwrite: If set to 'F', existing images won't be overwritten.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = ['destination', 'organization', 'hash', 'overwrite']  # noqa: E501
+        all_params.append('async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method copy_source_image" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'destination' is set
+        if ('destination' not in params or
+                params['destination'] is None):
+            raise ValueError("Missing the required parameter `destination` when calling `copy_source_image`")  # noqa: E501
+        # verify the required parameter 'organization' is set
+        if ('organization' not in params or
+                params['organization'] is None):
+            raise ValueError("Missing the required parameter `organization` when calling `copy_source_image`")  # noqa: E501
+        # verify the required parameter 'hash' is set
+        if ('hash' not in params or
+                params['hash'] is None):
+            raise ValueError("Missing the required parameter `hash` when calling `copy_source_image`")  # noqa: E501
+
+        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `copy_source_image`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'hash' in params and not re.search('[0-9a-fA-F]{6,40}', params['hash']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `hash` when calling `copy_source_image`, must conform to the pattern `/[0-9a-fA-F]{6,40}/`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'organization' in params:
+            path_params['organization'] = params['organization']  # noqa: E501
+        if 'hash' in params:
+            path_params['hash'] = params['hash']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+        if 'destination' in params:
+            header_params['Destination'] = params['destination']  # noqa: E501
+        if 'overwrite' in params:
+            header_params['Overwrite'] = params['overwrite']  # noqa: E501
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # Authentication setting
+        auth_settings = ['ApiKeyAuth']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/sourceimages/{organization}/{hash}/copy', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async=params.get('async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def create_source_image(self, filedata, organization, **kwargs):  # noqa: E501
         """Upload new source images.  # noqa: E501
 
@@ -1772,121 +1887,6 @@ class SourceimagesApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='SourceImage',  # noqa: E501
-            auth_settings=auth_settings,
-            async=params.get('async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', True),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def sourceimages_organization_hash_copy_post(self, destination, organization, hash, **kwargs):  # noqa: E501
-        """Copy a single source image to another org.  # noqa: E501
-
-        The metadata is copied as well. After copying, changes to either image metadata are not reflected in the other image metadata.  This is a proxy method for COPY on /sourceimages/{organization}/{hash}. It allows to copy images with a POST request, to work around restrictive firewalls and allows to produce a swagger specification for this operation.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.sourceimages_organization_hash_copy_post(destination, organization, hash, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str destination: The destination organization (required)
-        :param str organization: (required)
-        :param str hash: (required)
-        :param str overwrite: If set to 'F', existing images won't be overwritten.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('async'):
-            return self.sourceimages_organization_hash_copy_post_with_http_info(destination, organization, hash, **kwargs)  # noqa: E501
-        else:
-            (data) = self.sourceimages_organization_hash_copy_post_with_http_info(destination, organization, hash, **kwargs)  # noqa: E501
-            return data
-
-    def sourceimages_organization_hash_copy_post_with_http_info(self, destination, organization, hash, **kwargs):  # noqa: E501
-        """Copy a single source image to another org.  # noqa: E501
-
-        The metadata is copied as well. After copying, changes to either image metadata are not reflected in the other image metadata.  This is a proxy method for COPY on /sourceimages/{organization}/{hash}. It allows to copy images with a POST request, to work around restrictive firewalls and allows to produce a swagger specification for this operation.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async=True
-        >>> thread = api.sourceimages_organization_hash_copy_post_with_http_info(destination, organization, hash, async=True)
-        >>> result = thread.get()
-
-        :param async bool
-        :param str destination: The destination organization (required)
-        :param str organization: (required)
-        :param str hash: (required)
-        :param str overwrite: If set to 'F', existing images won't be overwritten.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = ['destination', 'organization', 'hash', 'overwrite']  # noqa: E501
-        all_params.append('async')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method sourceimages_organization_hash_copy_post" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'destination' is set
-        if ('destination' not in params or
-                params['destination'] is None):
-            raise ValueError("Missing the required parameter `destination` when calling `sourceimages_organization_hash_copy_post`")  # noqa: E501
-        # verify the required parameter 'organization' is set
-        if ('organization' not in params or
-                params['organization'] is None):
-            raise ValueError("Missing the required parameter `organization` when calling `sourceimages_organization_hash_copy_post`")  # noqa: E501
-        # verify the required parameter 'hash' is set
-        if ('hash' not in params or
-                params['hash'] is None):
-            raise ValueError("Missing the required parameter `hash` when calling `sourceimages_organization_hash_copy_post`")  # noqa: E501
-
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `sourceimages_organization_hash_copy_post`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
-        if 'hash' in params and not re.search('[0-9a-fA-F]{6,40}', params['hash']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `hash` when calling `sourceimages_organization_hash_copy_post`, must conform to the pattern `/[0-9a-fA-F]{6,40}/`")  # noqa: E501
-        collection_formats = {}
-
-        path_params = {}
-        if 'organization' in params:
-            path_params['organization'] = params['organization']  # noqa: E501
-        if 'hash' in params:
-            path_params['hash'] = params['hash']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-        if 'destination' in params:
-            header_params['Destination'] = params['destination']  # noqa: E501
-        if 'overwrite' in params:
-            header_params['Overwrite'] = params['overwrite']  # noqa: E501
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        # Authentication setting
-        auth_settings = ['ApiKeyAuth']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/sourceimages/{organization}/{hash}/copy', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type=None,  # noqa: E501
             auth_settings=auth_settings,
             async=params.get('async'),
             _return_http_data_only=params.get('_return_http_data_only'),
