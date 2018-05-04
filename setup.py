@@ -16,7 +16,7 @@ from os import path
 from codecs import open
 
 NAME = "rokka_client_codegen"
-VERSION = "0.0.1"
+VERSION = "0.0.3"
 
 here = path.abspath(path.dirname(__file__))
 
