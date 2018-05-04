@@ -101,8 +101,8 @@ class AdminApi(object):
                 params['email'] is None):
             raise ValueError("Missing the required parameter `email` when calling `create_membership`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `create_membership`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `create_membership`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -202,8 +202,8 @@ class AdminApi(object):
                 params['organization_definition'] is None):
             raise ValueError("Missing the required parameter `organization_definition` when calling `create_organization`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `create_organization`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `create_organization`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -303,8 +303,8 @@ class AdminApi(object):
                 params['organization_options'] is None):
             raise ValueError("Missing the required parameter `organization_options` when calling `create_organization_options`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `create_organization_options`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `create_organization_options`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -491,8 +491,8 @@ class AdminApi(object):
                 params['email'] is None):
             raise ValueError("Missing the required parameter `email` when calling `delete_membership`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `delete_membership`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `delete_membership`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -590,8 +590,8 @@ class AdminApi(object):
                 params['email'] is None):
             raise ValueError("Missing the required parameter `email` when calling `get_membership`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `get_membership`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `get_membership`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -683,8 +683,8 @@ class AdminApi(object):
                 params['organization'] is None):
             raise ValueError("Missing the required parameter `organization` when calling `get_organization`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `get_organization`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `get_organization`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}

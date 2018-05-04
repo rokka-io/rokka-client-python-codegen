@@ -103,10 +103,10 @@ class StacksApi(object):
                 params['name'] is None):
             raise ValueError("Missing the required parameter `name` when calling `create_stack`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `create_stack`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
-        if 'name' in params and not re.search('[a-z0-9-_]+', params['name']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `name` when calling `create_stack`, must conform to the pattern `/[a-z0-9-_]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `create_stack`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
+        if 'name' in params and not re.search('[a-z0-9\\-_]+', params['name']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `name` when calling `create_stack`, must conform to the pattern `/[a-z0-9\\-_]+/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -208,10 +208,10 @@ class StacksApi(object):
                 params['name'] is None):
             raise ValueError("Missing the required parameter `name` when calling `delete_stack`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `delete_stack`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
-        if 'name' in params and not re.search('[a-z0-9-_]+', params['name']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `name` when calling `delete_stack`, must conform to the pattern `/[a-z0-9-_]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `delete_stack`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
+        if 'name' in params and not re.search('[a-z0-9\\-_]+', params['name']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `name` when calling `delete_stack`, must conform to the pattern `/[a-z0-9\\-_]+/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -309,10 +309,10 @@ class StacksApi(object):
                 params['name'] is None):
             raise ValueError("Missing the required parameter `name` when calling `get_stack`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `get_stack`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
-        if 'name' in params and not re.search('[a-z0-9-_]+', params['name']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `name` when calling `get_stack`, must conform to the pattern `/[a-z0-9-_]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `get_stack`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
+        if 'name' in params and not re.search('[a-z0-9\\-_]+', params['name']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `name` when calling `get_stack`, must conform to the pattern `/[a-z0-9\\-_]+/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -566,8 +566,8 @@ class StacksApi(object):
                 params['organization'] is None):
             raise ValueError("Missing the required parameter `organization` when calling `list_stacks`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `list_stacks`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `list_stacks`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}

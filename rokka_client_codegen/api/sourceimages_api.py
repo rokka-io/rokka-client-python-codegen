@@ -105,8 +105,8 @@ class SourceimagesApi(object):
                 params['hash'] is None):
             raise ValueError("Missing the required parameter `hash` when calling `copy_source_image`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `copy_source_image`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `copy_source_image`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         if 'hash' in params and not re.search('[0-9a-fA-F]{6,40}', params['hash']):  # noqa: E501
             raise ValueError("Invalid value for parameter `hash` when calling `copy_source_image`, must conform to the pattern `/[0-9a-fA-F]{6,40}/`")  # noqa: E501
         collection_formats = {}
@@ -216,8 +216,8 @@ class SourceimagesApi(object):
                 params['organization'] is None):
             raise ValueError("Missing the required parameter `organization` when calling `create_source_image`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `create_source_image`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `create_source_image`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -339,8 +339,8 @@ class SourceimagesApi(object):
                 params['meta_name'] is None):
             raise ValueError("Missing the required parameter `meta_name` when calling `create_source_image_meta_dynamic_with_name`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `create_source_image_meta_dynamic_with_name`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `create_source_image_meta_dynamic_with_name`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         if 'hash' in params and not re.search('[0-9a-fA-F]{6,40}', params['hash']):  # noqa: E501
             raise ValueError("Invalid value for parameter `hash` when calling `create_source_image_meta_dynamic_with_name`, must conform to the pattern `/[0-9a-fA-F]{6,40}/`")  # noqa: E501
         if 'meta_name' in params and not re.search('[a-zA-Z_]+', params['meta_name']):  # noqa: E501
@@ -456,8 +456,8 @@ class SourceimagesApi(object):
                 params['hash'] is None):
             raise ValueError("Missing the required parameter `hash` when calling `create_source_image_meta_user`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `create_source_image_meta_user`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `create_source_image_meta_user`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         if 'hash' in params and not re.search('[0-9a-fA-F]{6,40}', params['hash']):  # noqa: E501
             raise ValueError("Invalid value for parameter `hash` when calling `create_source_image_meta_user`, must conform to the pattern `/[0-9a-fA-F]{6,40}/`")  # noqa: E501
         collection_formats = {}
@@ -573,8 +573,8 @@ class SourceimagesApi(object):
                 params['meta_name'] is None):
             raise ValueError("Missing the required parameter `meta_name` when calling `create_source_image_meta_user_wth_name`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `create_source_image_meta_user_wth_name`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `create_source_image_meta_user_wth_name`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         if 'hash' in params and not re.search('[0-9a-fA-F]{6,40}', params['hash']):  # noqa: E501
             raise ValueError("Invalid value for parameter `hash` when calling `create_source_image_meta_user_wth_name`, must conform to the pattern `/[0-9a-fA-F]{6,40}/`")  # noqa: E501
         if 'meta_name' in params and not re.search('[a-zA-Z0-9_-]+', params['meta_name']):  # noqa: E501
@@ -680,8 +680,8 @@ class SourceimagesApi(object):
                 params['hash'] is None):
             raise ValueError("Missing the required parameter `hash` when calling `delete_source_image`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `delete_source_image`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `delete_source_image`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         if 'hash' in params and not re.search('[0-9a-fA-F]{6,40}', params['hash']):  # noqa: E501
             raise ValueError("Invalid value for parameter `hash` when calling `delete_source_image`, must conform to the pattern `/[0-9a-fA-F]{6,40}/`")  # noqa: E501
         collection_formats = {}
@@ -791,8 +791,8 @@ class SourceimagesApi(object):
                 params['meta_name'] is None):
             raise ValueError("Missing the required parameter `meta_name` when calling `delete_source_image_meta_dynamic_with_name`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `delete_source_image_meta_dynamic_with_name`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `delete_source_image_meta_dynamic_with_name`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         if 'hash' in params and not re.search('[0-9a-fA-F]{6,40}', params['hash']):  # noqa: E501
             raise ValueError("Invalid value for parameter `hash` when calling `delete_source_image_meta_dynamic_with_name`, must conform to the pattern `/[0-9a-fA-F]{6,40}/`")  # noqa: E501
         if 'meta_name' in params and not re.search('[a-zA-Z_]+', params['meta_name']):  # noqa: E501
@@ -900,8 +900,8 @@ class SourceimagesApi(object):
                 params['hash'] is None):
             raise ValueError("Missing the required parameter `hash` when calling `delete_source_image_meta_user`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `delete_source_image_meta_user`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `delete_source_image_meta_user`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         if 'hash' in params and not re.search('[0-9a-fA-F]{6,40}', params['hash']):  # noqa: E501
             raise ValueError("Invalid value for parameter `hash` when calling `delete_source_image_meta_user`, must conform to the pattern `/[0-9a-fA-F]{6,40}/`")  # noqa: E501
         collection_formats = {}
@@ -1009,8 +1009,8 @@ class SourceimagesApi(object):
                 params['meta_name'] is None):
             raise ValueError("Missing the required parameter `meta_name` when calling `delete_source_image_meta_user_with_name`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `delete_source_image_meta_user_with_name`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `delete_source_image_meta_user_with_name`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         if 'hash' in params and not re.search('[0-9a-fA-F]{6,40}', params['hash']):  # noqa: E501
             raise ValueError("Invalid value for parameter `hash` when calling `delete_source_image_meta_user_with_name`, must conform to the pattern `/[0-9a-fA-F]{6,40}/`")  # noqa: E501
         if 'meta_name' in params and not re.search('[a-zA-Z0-9_-]+', params['meta_name']):  # noqa: E501
@@ -1114,8 +1114,8 @@ class SourceimagesApi(object):
                 params['hash'] is None):
             raise ValueError("Missing the required parameter `hash` when calling `download_source_image`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `download_source_image`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `download_source_image`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         if 'hash' in params and not re.search('[0-9a-fA-F]{6,40}', params['hash']):  # noqa: E501
             raise ValueError("Invalid value for parameter `hash` when calling `download_source_image`, must conform to the pattern `/[0-9a-fA-F]{6,40}/`")  # noqa: E501
         collection_formats = {}
@@ -1215,8 +1215,8 @@ class SourceimagesApi(object):
                 params['hash'] is None):
             raise ValueError("Missing the required parameter `hash` when calling `get_source_image`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `get_source_image`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `get_source_image`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         if 'hash' in params and not re.search('[0-9a-fA-F]{6,40}', params['hash']):  # noqa: E501
             raise ValueError("Invalid value for parameter `hash` when calling `get_source_image`, must conform to the pattern `/[0-9a-fA-F]{6,40}/`")  # noqa: E501
         collection_formats = {}
@@ -1316,8 +1316,8 @@ class SourceimagesApi(object):
                 params['hash'] is None):
             raise ValueError("Missing the required parameter `hash` when calling `get_source_image_meta_user`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `get_source_image_meta_user`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `get_source_image_meta_user`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         if 'hash' in params and not re.search('[0-9a-fA-F]{6,40}', params['hash']):  # noqa: E501
             raise ValueError("Invalid value for parameter `hash` when calling `get_source_image_meta_user`, must conform to the pattern `/[0-9a-fA-F]{6,40}/`")  # noqa: E501
         collection_formats = {}
@@ -1423,8 +1423,8 @@ class SourceimagesApi(object):
                 params['meta_name'] is None):
             raise ValueError("Missing the required parameter `meta_name` when calling `get_source_image_meta_user_with_name`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `get_source_image_meta_user_with_name`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `get_source_image_meta_user_with_name`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         if 'hash' in params and not re.search('[0-9a-fA-F]{6,40}', params['hash']):  # noqa: E501
             raise ValueError("Invalid value for parameter `hash` when calling `get_source_image_meta_user_with_name`, must conform to the pattern `/[0-9a-fA-F]{6,40}/`")  # noqa: E501
         if 'meta_name' in params and not re.search('[a-zA-Z0-9_-]+', params['meta_name']):  # noqa: E501
@@ -1532,8 +1532,8 @@ class SourceimagesApi(object):
                 params['organization'] is None):
             raise ValueError("Missing the required parameter `organization` when calling `list_source_images`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `list_source_images`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `list_source_images`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         if 'limit' in params and params['limit'] > 2000:  # noqa: E501
             raise ValueError("Invalid value for parameter `limit` when calling `list_source_images`, must be a value less than or equal to `2000`")  # noqa: E501
         if 'limit' in params and params['limit'] < 0:  # noqa: E501
@@ -1643,8 +1643,8 @@ class SourceimagesApi(object):
                 params['binary_hash'] is None):
             raise ValueError("Missing the required parameter `binary_hash` when calling `list_source_images_by_binary_hash`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `list_source_images_by_binary_hash`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `list_source_images_by_binary_hash`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -1750,8 +1750,8 @@ class SourceimagesApi(object):
                 params['hash'] is None):
             raise ValueError("Missing the required parameter `hash` when calling `patch_source_image_meta_user`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `patch_source_image_meta_user`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `patch_source_image_meta_user`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         if 'hash' in params and not re.search('[0-9a-fA-F]{6,40}', params['hash']):  # noqa: E501
             raise ValueError("Invalid value for parameter `hash` when calling `patch_source_image_meta_user`, must conform to the pattern `/[0-9a-fA-F]{6,40}/`")  # noqa: E501
         collection_formats = {}
@@ -1855,8 +1855,8 @@ class SourceimagesApi(object):
                 params['hash'] is None):
             raise ValueError("Missing the required parameter `hash` when calling `restore_source_image`")  # noqa: E501
 
-        if 'organization' in params and not re.search('[0-9a-z-]+', params['organization']):  # noqa: E501
-            raise ValueError("Invalid value for parameter `organization` when calling `restore_source_image`, must conform to the pattern `/[0-9a-z-]+/`")  # noqa: E501
+        if 'organization' in params and not re.search('[0-9a-z\\-]+', params['organization']):  # noqa: E501
+            raise ValueError("Invalid value for parameter `organization` when calling `restore_source_image`, must conform to the pattern `/[0-9a-z\\-]+/`")  # noqa: E501
         if 'hash' in params and not re.search('[0-9a-fA-F]{6,40}', params['hash']):  # noqa: E501
             raise ValueError("Invalid value for parameter `hash` when calling `restore_source_image`, must conform to the pattern `/[0-9a-fA-F]{6,40}/`")  # noqa: E501
         collection_formats = {}
