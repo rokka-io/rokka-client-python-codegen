@@ -1,7 +1,7 @@
-diff --git a/.travis.yml b/.travis.yml
-index 86211e2..8caa290 100644
---- a/.travis.yml
-+++ b/.travis.yml
+diff --git b/.travis.yml a/.travis.yml
+index 86211e2..6b229ce 100644
+--- b/.travis.yml
++++ a/.travis.yml
 @@ -2,7 +2,7 @@
  language: python
  python:
@@ -11,3 +11,16 @@ index 86211e2..8caa290 100644
    - "3.3"
    - "3.4"
    - "3.5"
+@@ -12,3 +12,12 @@ python:
+ install: "pip install -r requirements.txt"
+ # command to run tests
+ script: nosetests
++deploy:
++  provider: pypi
++  user: rokka
++  password:
++    secure: n10sYMlxrS8T0ZdQkZLisTaeUQaLfATg/aNta30yNAWR7iI4CvY9wdirIXp/Pmhwln+iSMdbkrUCloCCN/1HHC6qcSRiFXKnm+7U31laxjMW1R/zFQbKJ+uMnV5ZDcGlBdHT0EMpFml8wwZK3L5FMI4+PePHxvg0++bcIdr1ZehAL/ddXBMJqnU0s3g89JDSuYVUaJV0Qc+GrMZnntVxhzGq88ulRWPCBc+dCx+svAeY0SJzRhRHdJwFcX2MLPjIF/Ev7Q/InKytCa4w36PjRjLn5oHBDAgeedFynlgJIKyGFzeJBrlAvf2fsjjxwRtZDaga7tEvW8+d3my1HsnBiU6DR2GCT7zpx0C3thz43Xt6O53SMJfCR36XA4o/l7Lo9eXK6A6+MChhQ/hOpJ0XD0N997+wO/MkhlDYdM21066Z55xt811KgRakNWiTaN6YTt4iXOgVHwH+qZKxH7CIoy91oaa2IVGQfzSmzdSucAyLcHoQCqzI3JWgxyWKjnETU1TsytArsQKQbqUVzV5GUUhsjY4hYebewntxu9FpA8TCmvUYQZQSZQ26n9c58ZUFXY44LVbpufnQ0qCElJstyZuzG447CywlrvPswMLdguhhCaclZELgSfd5dolJuRmFQE7HPkxjtc9R/xcsV8SpOoqt6pvRrSCiy6Kd4fmCzhc=
++  on:
++    tags: true
++    distributions: sdist bdist_wheel
++    repo: rokka-io/rokka-python-codegen

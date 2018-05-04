@@ -1,0 +1,49 @@
+diff --git b/setup.py a/setup.py
+index 4f8c3d9..3fbb149 100644
+--- b/setup.py
++++ a/setup.py
+@@ -12,9 +12,16 @@
+ 
+ 
+ from setuptools import setup, find_packages  # noqa: H301
++from os import path
++from codecs import open
+ 
+-NAME = "rokka-client-codegen"
++NAME = "rokka_client_codegen"
+ VERSION = "0.0.1"
++
++here = path.abspath(path.dirname(__file__))
++
++with open(path.join(here, 'README.md'), encoding='utf-8') as f:
++    long_description = f.read()
+ # To install the library, run the following
+ #
+ # python setup.py install
+@@ -27,14 +34,19 @@ REQUIRES = ["urllib3 >= 1.15", "six >= 1.10", "certifi", "python-dateutil"]
+ setup(
+     name=NAME,
+     version=VERSION,
+-    description="rokka.io",
+-    author_email="",
+-    url="",
+-    keywords=["Swagger", "rokka.io"],
++    description="Client for rokka.io",
++    author_email="rokka@rokka.io",
++    author="rokka",
++    license="MIT",
++    url="https://github.com/rokka-io/rokka-python-codegen",
++    keywords=["rokka.io", "rokka"],
+     install_requires=REQUIRES,
+     packages=find_packages(),
+     include_package_data=True,
+-    long_description="""\
+-    digital image processing done right. [Documentation](https://rokka.io/documentation). [Changelog](https://api.rokka.io/changelog.md).  # noqa: E501
+-    """
++    long_description=long_description,  # Optional
++    long_description_content_type='text/markdown',  # Optional
++    classifiers=[
++        'Development Status :: 4 - Beta',
++        'License :: OSI Approved :: MIT License'
++    ]
+ )
