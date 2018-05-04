@@ -9,7 +9,7 @@ A thin wrapper package for using this to make some things easier would be welcom
 The pip is currently nowhere published, you have to build it yourself (see below). But if needed, we will publish it.
 
 - API version: 1.0.0
-- Package version: 0.0.1
+- Package version: 0.0.2
 - Build package: io.swagger.codegen.languages.PythonClientCodegen
 
 ## Requirements.

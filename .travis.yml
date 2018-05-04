@@ -21,3 +21,4 @@ deploy:
     tags: true
     distributions: sdist bdist_wheel
     repo: rokka-io/rokka-python-codegen
+    python: "3.5"

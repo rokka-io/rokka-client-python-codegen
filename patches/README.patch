@@ -1,5 +1,5 @@
 diff --git b/README.md a/README.md
-index 666b09f..1c1a3b3 100644
+index 2c377a5..28468c6 100644
 --- b/README.md
 +++ a/README.md
 @@ -1,7 +1,12 @@
@@ -16,7 +16,7 @@ index 666b09f..1c1a3b3 100644
 +The pip is currently nowhere published, you have to build it yourself (see below). But if needed, we will publish it.
  
  - API version: 1.0.0
- - Package version: 0.0.1
+ - Package version: 0.0.2
 @@ -17,9 +22,9 @@ Python 2.7 and 3.4+
  If the python package is hosted on Github, you can install directly from Github
  
