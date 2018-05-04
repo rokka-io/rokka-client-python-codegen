@@ -1,8 +1,8 @@
 diff --git b/README.md a/README.md
-index 06d0e0a..52cea05 100644
+index 24b204f..26d8600 100644
 --- b/README.md
 +++ a/README.md
-@@ -1,7 +1,12 @@
+@@ -1,11 +1,13 @@
  # rokka-client-codegen
 -digital image processing done right. [Documentation](https://rokka.io/documentation). [Changelog](https://api.rokka.io/changelog.md).
  
@@ -12,24 +12,25 @@ index 06d0e0a..52cea05 100644
 +See the [examples](examples/) directory for some simple rokka specific examples.
 +
 +A thin wrapper package for using this to make some things easier would be welcome. We're [happy to help](https://rokka.io/en/contact/).
-+
-+The pip is currently nowhere published, you have to build it yourself (see below). But if needed, we will publish it.
  
  - API version: 1.0.0
- - Package version: 0.0.3
-@@ -17,9 +22,9 @@ Python 2.7 and 3.4+
+ - Package version: 0.1.0
+-- Build package: io.swagger.codegen.languages.PythonClientCodegen
+ 
+ ## Requirements.
+ 
+@@ -17,9 +19,8 @@ Python 2.7 and 3.4+
  If the python package is hosted on Github, you can install directly from Github
  
  ```sh
 -pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
-+pip install git+https://github.com/rokka-io/rokka-python-codegen.git
++pip install rokka_client_codegen
  ```
 -(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git`)
-+(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/rokka-io/rokka-python-codegen.git`)
  
  Then import the package:
  ```python
-@@ -42,37 +47,11 @@ import rokka_client_codegen
+@@ -42,37 +43,11 @@ import rokka_client_codegen
  
  ## Getting Started
  
@@ -69,3 +70,11 @@ index 06d0e0a..52cea05 100644
  
  Class | Method | HTTP request | Description
  ------------ | ------------- | ------------- | -------------
+@@ -139,7 +114,5 @@ Class | Method | HTTP request | Description
+ - **Location**: HTTP header
+ 
+ 
+-## Author
+-
+ 
+ 

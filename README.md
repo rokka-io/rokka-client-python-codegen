@@ -6,11 +6,8 @@ See the [examples](examples/) directory for some simple rokka specific examples.
 
 A thin wrapper package for using this to make some things easier would be welcome. We're [happy to help](https://rokka.io/en/contact/).
 
-The pip is currently nowhere published, you have to build it yourself (see below). But if needed, we will publish it.
-
 - API version: 1.0.0
-- Package version: 0.0.3
-- Build package: io.swagger.codegen.languages.PythonClientCodegen
+- Package version: 0.1.0
 
 ## Requirements.
 
@@ -22,9 +19,8 @@ Python 2.7 and 3.4+
 If the python package is hosted on Github, you can install directly from Github
 
 ```sh
-pip install git+https://github.com/rokka-io/rokka-python-codegen.git
+pip install rokka_client_codegen
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/rokka-io/rokka-python-codegen.git`)
 
 Then import the package:
 ```python
@@ -117,8 +113,6 @@ Class | Method | HTTP request | Description
 - **API key parameter name**: api-key
 - **Location**: HTTP header
 
-
-## Author
 
 
 
