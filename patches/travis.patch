@@ -1,16 +1,18 @@
 diff --git b/.travis.yml a/.travis.yml
-index 86211e2..b878f19 100644
+index 86211e2..6ccbb38 100644
 --- b/.travis.yml
 +++ a/.travis.yml
-@@ -2,7 +2,7 @@
+@@ -2,8 +2,8 @@
  language: python
  python:
    - "2.7"
 -  - "3.2"
+-  - "3.3"
 +#  - "3.2"
-   - "3.3"
++# - "3.3"
    - "3.4"
    - "3.5"
+   #- "3.5-dev" # 3.5 development branch
 @@ -12,3 +12,13 @@ python:
  install: "pip install -r requirements.txt"
  # command to run tests
