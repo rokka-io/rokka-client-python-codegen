@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **stack_options** | **object** |  | [optional] 
 **stack_expressions** | [**list[StackExpression]**](StackExpression.md) |  | [optional] 
 **link** | **str** |  | [optional] 
+**stack_variables** | **object** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

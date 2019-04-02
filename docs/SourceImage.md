@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **user_metadata** | **object** |  | [optional] 
 **deleted** | **bool** | Null as default (means false) | [optional] 
 **deleted_date** | **datetime** |  | [optional] 
+**animated** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

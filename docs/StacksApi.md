@@ -274,7 +274,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_stacks**
-> ListStacksResponse list_stacks(organization)
+> ListStacksResponse list_stacks(organization, limit=limit, offset=offset)
 
 Get all stacks of an organization.
 
@@ -295,10 +295,12 @@ configuration.api_key['api-key'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = rokka_client_codegen.StacksApi(rokka_client_codegen.ApiClient(configuration))
 organization = 'organization_example' # str | 
+limit = 1000 # int | How many stacks should be returned (optional) (default to 1000)
+offset = 'offset_example' # str | When paging results, where to start. Must be a cursor, absolute numbers are not supported (optional)
 
 try:
     # Get all stacks of an organization.
-    api_response = api_instance.list_stacks(organization)
+    api_response = api_instance.list_stacks(organization, limit=limit, offset=offset)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling StacksApi->list_stacks: %s\n" % e)
@@ -309,6 +311,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **organization** | **str**|  | 
+ **limit** | **int**| How many stacks should be returned | [optional] [default to 1000]
+ **offset** | **str**| When paging results, where to start. Must be a cursor, absolute numbers are not supported | [optional] 
 
 ### Return type
 

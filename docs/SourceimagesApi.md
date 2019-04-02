@@ -4,12 +4,14 @@ All URIs are relative to *https://api.rokka.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**copy_multiple_source_images**](SourceimagesApi.md#copy_multiple_source_images) | **POST** /sourceimages/{organization}/copy | Copy multiple source images to another org.
 [**copy_source_image**](SourceimagesApi.md#copy_source_image) | **POST** /sourceimages/{organization}/{hash}/copy | Copy a single source image to another org.
 [**create_source_image**](SourceimagesApi.md#create_source_image) | **POST** /sourceimages/{organization} | Upload new source images.
 [**create_source_image_meta_dynamic_with_name**](SourceimagesApi.md#create_source_image_meta_dynamic_with_name) | **PUT** /sourceimages/{organization}/{hash}/meta/dynamic/{metaName} | Adds or updates a specific dynamic meta data for an image.
 [**create_source_image_meta_user**](SourceimagesApi.md#create_source_image_meta_user) | **PUT** /sourceimages/{organization}/{hash}/meta/user | Replace the image meta data with new information.
 [**create_source_image_meta_user_wth_name**](SourceimagesApi.md#create_source_image_meta_user_wth_name) | **PUT** /sourceimages/{organization}/{hash}/meta/user/{metaName} | Adds or updates one user meta data field for an image.
 [**delete_source_image**](SourceimagesApi.md#delete_source_image) | **DELETE** /sourceimages/{organization}/{hash} | Delete a single source image.
+[**delete_source_image_cache**](SourceimagesApi.md#delete_source_image_cache) | **DELETE** /sourceimages/{organization}/{hash}/cache | Delete the caches of a single source image.
 [**delete_source_image_meta_dynamic_with_name**](SourceimagesApi.md#delete_source_image_meta_dynamic_with_name) | **DELETE** /sourceimages/{organization}/{hash}/meta/dynamic/{metaName} | Deletes a specific dynamic meta data.
 [**delete_source_image_meta_user**](SourceimagesApi.md#delete_source_image_meta_user) | **DELETE** /sourceimages/{organization}/{hash}/meta/user | Deletes all user meta data.
 [**delete_source_image_meta_user_with_name**](SourceimagesApi.md#delete_source_image_meta_user_with_name) | **DELETE** /sourceimages/{organization}/{hash}/meta/user/{metaName} | Deletes user meta data for a specified field.
@@ -22,6 +24,65 @@ Method | HTTP request | Description
 [**patch_source_image_meta_user**](SourceimagesApi.md#patch_source_image_meta_user) | **PATCH** /sourceimages/{organization}/{hash}/meta/user | Update the specified meta data fields for an image.
 [**restore_source_image**](SourceimagesApi.md#restore_source_image) | **POST** /sourceimages/{organization}/{hash}/restore | Restore source image including previously set metadata.
 
+
+# **copy_multiple_source_images**
+> copy_multiple_source_images(destination, hashes, organization, overwrite=overwrite)
+
+Copy multiple source images to another org.
+
+The metadata is copied as well. After copying, changes to either image metadata are not reflected in the other image metadata.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import rokka_client_codegen
+from rokka_client_codegen.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: ApiKeyAuth
+configuration = rokka_client_codegen.Configuration()
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['api-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = rokka_client_codegen.SourceimagesApi(rokka_client_codegen.ApiClient(configuration))
+destination = 'destination_example' # str | The destination organization
+hashes = [rokka_client_codegen.list[str]()] # list[str] | Arrays of hashes to be copied. Max 100 at once
+organization = 'organization_example' # str | 
+overwrite = 'overwrite_example' # str | If set to 'F', existing images won't be overwritten. (optional)
+
+try:
+    # Copy multiple source images to another org.
+    api_instance.copy_multiple_source_images(destination, hashes, organization, overwrite=overwrite)
+except ApiException as e:
+    print("Exception when calling SourceimagesApi->copy_multiple_source_images: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **destination** | **str**| The destination organization | 
+ **hashes** | **list[str]**| Arrays of hashes to be copied. Max 100 at once | 
+ **organization** | **str**|  | 
+ **overwrite** | **str**| If set to &#39;F&#39;, existing images won&#39;t be overwritten. | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **copy_source_image**
 > copy_source_image(destination, organization, hash, overwrite=overwrite)
@@ -83,7 +144,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_source_image**
-> ListSourceImagesResponse create_source_image(filedata, organization, meta_dynamic=meta_dynamic, meta_user=meta_user)
+> ListSourceImagesResponse create_source_image(organization, filedata=filedata, url=url, meta_dynamic=meta_dynamic, meta_user=meta_user, optimize_source=optimize_source)
 
 Upload new source images.
 
@@ -105,14 +166,16 @@ configuration.api_key['api-key'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = rokka_client_codegen.SourceimagesApi(rokka_client_codegen.ApiClient(configuration))
-filedata = '/path/to/file.txt' # file | The binary images
 organization = 'organization_example' # str | 
+filedata = '/path/to/file.txt' # file | The binary images in 'multipart/form-data' format (you can also use the url parameter below as alternative) (optional)
+url = 'url_example' # str | URL to remote images to be imported into rokka instead of uploading them via a POST parameter. (optional)
 meta_dynamic = 'meta_dynamic_example' # str | JSON metadata about the image, e.g. subject area. See https://rokka.io/documentation/references/dynamic-metadata.html (optional)
 meta_user = 'meta_user_example' # str | User specific JSON metadata that can be used when searching source images. See https://rokka.io/documentation/references/user-metadata.html (optional)
+optimize_source = true # bool | If set to true, rokka will (lossless) optimize the source image, if applicable. Currently only done for TIFF files. (optional)
 
 try:
     # Upload new source images.
-    api_response = api_instance.create_source_image(filedata, organization, meta_dynamic=meta_dynamic, meta_user=meta_user)
+    api_response = api_instance.create_source_image(organization, filedata=filedata, url=url, meta_dynamic=meta_dynamic, meta_user=meta_user, optimize_source=optimize_source)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling SourceimagesApi->create_source_image: %s\n" % e)
@@ -122,10 +185,12 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **filedata** | **file**| The binary images | 
  **organization** | **str**|  | 
+ **filedata** | **file**| The binary images in &#39;multipart/form-data&#39; format (you can also use the url parameter below as alternative) | [optional] 
+ **url** | **str**| URL to remote images to be imported into rokka instead of uploading them via a POST parameter. | [optional] 
  **meta_dynamic** | **str**| JSON metadata about the image, e.g. subject area. See https://rokka.io/documentation/references/dynamic-metadata.html | [optional] 
  **meta_user** | **str**| User specific JSON metadata that can be used when searching source images. See https://rokka.io/documentation/references/user-metadata.html | [optional] 
+ **optimize_source** | **bool**| If set to true, rokka will (lossless) optimize the source image, if applicable. Currently only done for TIFF files. | [optional] 
 
 ### Return type
 
@@ -361,6 +426,62 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_source_image_cache**
+> InlineResponse200 delete_source_image_cache(organization, hash)
+
+Delete the caches of a single source image.
+
+Use this only when absolutely needed. You can only use this if you're on a paid account. This feature may incur additional charges.  A normal sourceimage delete won't delete the image from the rokka caches, which in a majority of cases is not a problem. If you absolutely MUST delete the image from the caches e.g. for copyright/privacy reasons, that is what this call is for.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import rokka_client_codegen
+from rokka_client_codegen.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: ApiKeyAuth
+configuration = rokka_client_codegen.Configuration()
+configuration.api_key['api-key'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['api-key'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = rokka_client_codegen.SourceimagesApi(rokka_client_codegen.ApiClient(configuration))
+organization = 'organization_example' # str | 
+hash = 'hash_example' # str | 
+
+try:
+    # Delete the caches of a single source image.
+    api_response = api_instance.delete_source_image_cache(organization, hash)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling SourceimagesApi->delete_source_image_cache: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **organization** | **str**|  | 
+ **hash** | **str**|  | 
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 

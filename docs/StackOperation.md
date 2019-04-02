@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**expressions** | **object** | Stack operations expressions as key-value pairs | [optional] 
 **name** | **str** |  | 
 **options** | **object** | Stack operations options as key-value pairs | [optional] 
 

@@ -1,12 +1,15 @@
-# StackOperationDescription
+# StackOperationDescriptionProperties
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**properties** | [**dict(str, StackOperationDescriptionProperties)**](StackOperationDescriptionProperties.md) |  | 
+**type** | **str** |  | 
+**default** | **str** |  | [optional] 
 **description** | **str** |  | 
-**required** | **list[str]** |  | [optional] 
-**one_of** | **list[str]** |  | [optional] 
+**pattern** | **str** |  | [optional] 
+**minimum** | **int** |  | [optional] 
+**maximum** | **int** |  | [optional] 
+**values** | **list[str]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

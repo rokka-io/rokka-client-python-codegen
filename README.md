@@ -6,8 +6,8 @@ See the [examples](examples/) directory for some simple rokka specific examples.
 
 A thin wrapper package for using this to make some things easier would be welcome. We're [happy to help](https://rokka.io/en/contact/).
 
-- API version: 1.0.0
-- Package version: 0.1.0
+- API version: 1.1.0
+- Package version: 0.2.0
 
 ## Requirements.
 
@@ -43,27 +43,33 @@ import rokka_client_codegen
 
 ## Getting Started
 
-Please follow the [installation procedure](#installation--usage) and then see the [examples](examples/)  directory.
+Please follow the [installation procedure](#installation--usage) and then see the [examples](examples/) directory.
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.rokka.io/*
+All URIs are relative to *https://api.rokka.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AdminApi* | [**create_membership**](docs/AdminApi.md#create_membership) | **PUT** /organizations/{organization}/memberships/{email} | Add a rokka user into an organization.
+*AdminApi* | [**create_membership**](docs/AdminApi.md#create_membership) | **PUT** /organizations/{organization}/memberships/{userId} | Add a rokka user into an organization.
+*AdminApi* | [**create_membership_and_user**](docs/AdminApi.md#create_membership_and_user) | **POST** /organizations/{organization}/memberships | Creates a new user and api-key for the current user.
 *AdminApi* | [**create_organization**](docs/AdminApi.md#create_organization) | **PUT** /organizations/{organization} | Register a new Organization.
 *AdminApi* | [**create_organization_options**](docs/AdminApi.md#create_organization_options) | **PUT** /organizations/{organization}/options | Update options for an organization.
 *AdminApi* | [**create_user**](docs/AdminApi.md#create_user) | **POST** /users | Register new user.
-*AdminApi* | [**delete_membership**](docs/AdminApi.md#delete_membership) | **DELETE** /organizations/{organization}/memberships/{email} | Remove a user from an organization.
-*AdminApi* | [**get_membership**](docs/AdminApi.md#get_membership) | **GET** /organizations/{organization}/memberships/{email} | Get information about organization membership of a rokka user.
+*AdminApi* | [**delete_membership**](docs/AdminApi.md#delete_membership) | **DELETE** /organizations/{organization}/memberships/{userId} | Remove a user from an organization.
+*AdminApi* | [**get_billing**](docs/AdminApi.md#get_billing) | **GET** /billing/{organization} | Returns monthly statistics for an organization grouped by its master and sub organisations.
+*AdminApi* | [**get_membership**](docs/AdminApi.md#get_membership) | **GET** /organizations/{organization}/memberships/{userId} | Get information about organization membership of a rokka user.
 *AdminApi* | [**get_organization**](docs/AdminApi.md#get_organization) | **GET** /organizations/{organization} | Get information about an organization.
+*AdminApi* | [**get_user**](docs/AdminApi.md#get_user) | **GET** /user | Gets info for current user, currently just the user_id.
+*AdminApi* | [**list_membership**](docs/AdminApi.md#list_membership) | **GET** /organizations/{organization}/memberships | Get information about organization memberships of an organization.
+*SourceimagesApi* | [**copy_multiple_source_images**](docs/SourceimagesApi.md#copy_multiple_source_images) | **POST** /sourceimages/{organization}/copy | Copy multiple source images to another org.
 *SourceimagesApi* | [**copy_source_image**](docs/SourceimagesApi.md#copy_source_image) | **POST** /sourceimages/{organization}/{hash}/copy | Copy a single source image to another org.
 *SourceimagesApi* | [**create_source_image**](docs/SourceimagesApi.md#create_source_image) | **POST** /sourceimages/{organization} | Upload new source images.
 *SourceimagesApi* | [**create_source_image_meta_dynamic_with_name**](docs/SourceimagesApi.md#create_source_image_meta_dynamic_with_name) | **PUT** /sourceimages/{organization}/{hash}/meta/dynamic/{metaName} | Adds or updates a specific dynamic meta data for an image.
 *SourceimagesApi* | [**create_source_image_meta_user**](docs/SourceimagesApi.md#create_source_image_meta_user) | **PUT** /sourceimages/{organization}/{hash}/meta/user | Replace the image meta data with new information.
 *SourceimagesApi* | [**create_source_image_meta_user_wth_name**](docs/SourceimagesApi.md#create_source_image_meta_user_wth_name) | **PUT** /sourceimages/{organization}/{hash}/meta/user/{metaName} | Adds or updates one user meta data field for an image.
 *SourceimagesApi* | [**delete_source_image**](docs/SourceimagesApi.md#delete_source_image) | **DELETE** /sourceimages/{organization}/{hash} | Delete a single source image.
+*SourceimagesApi* | [**delete_source_image_cache**](docs/SourceimagesApi.md#delete_source_image_cache) | **DELETE** /sourceimages/{organization}/{hash}/cache | Delete the caches of a single source image.
 *SourceimagesApi* | [**delete_source_image_meta_dynamic_with_name**](docs/SourceimagesApi.md#delete_source_image_meta_dynamic_with_name) | **DELETE** /sourceimages/{organization}/{hash}/meta/dynamic/{metaName} | Deletes a specific dynamic meta data.
 *SourceimagesApi* | [**delete_source_image_meta_user**](docs/SourceimagesApi.md#delete_source_image_meta_user) | **DELETE** /sourceimages/{organization}/{hash}/meta/user | Deletes all user meta data.
 *SourceimagesApi* | [**delete_source_image_meta_user_with_name**](docs/SourceimagesApi.md#delete_source_image_meta_user_with_name) | **DELETE** /sourceimages/{organization}/{hash}/meta/user/{metaName} | Deletes user meta data for a specified field.
@@ -85,13 +91,15 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [InlineResponse200](docs/InlineResponse200.md)
  - [ListSourceImagesResponse](docs/ListSourceImagesResponse.md)
  - [ListStacksResponse](docs/ListStacksResponse.md)
- - [Membership](docs/Membership.md)
+ - [ListUserMembershipsResponse](docs/ListUserMembershipsResponse.md)
  - [Organization](docs/Organization.md)
  - [OrganizationDefinition](docs/OrganizationDefinition.md)
  - [OrganizationOptions](docs/OrganizationOptions.md)
  - [Role](docs/Role.md)
+ - [Roles](docs/Roles.md)
  - [SourceImage](docs/SourceImage.md)
  - [Stack](docs/Stack.md)
  - [StackDefinition](docs/StackDefinition.md)
@@ -99,9 +107,11 @@ Class | Method | HTTP request | Description
  - [StackExpressionOverrides](docs/StackExpressionOverrides.md)
  - [StackOperation](docs/StackOperation.md)
  - [StackOperationDescription](docs/StackOperationDescription.md)
+ - [StackOperationDescriptionProperties](docs/StackOperationDescriptionProperties.md)
  - [StackOptions](docs/StackOptions.md)
  - [User](docs/User.md)
  - [UserDefinition](docs/UserDefinition.md)
+ - [UserMembership](docs/UserMembership.md)
 
 
 ## Documentation For Authorization

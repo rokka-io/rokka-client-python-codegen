@@ -1,10 +1,9 @@
-# StackExpressionOverrides
+# Roles
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**options** | **object** |  | [optional] 
-**variables** | **object** |  | [optional] 
+**roles** | **list[str]** | One or more of admin, read, write or upload | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

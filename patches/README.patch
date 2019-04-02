@@ -1,5 +1,5 @@
 diff --git b/README.md a/README.md
-index 24b204f..26d8600 100644
+index 3211946..6f04367 100644
 --- b/README.md
 +++ a/README.md
 @@ -1,11 +1,13 @@
@@ -13,8 +13,8 @@ index 24b204f..26d8600 100644
 +
 +A thin wrapper package for using this to make some things easier would be welcome. We're [happy to help](https://rokka.io/en/contact/).
  
- - API version: 1.0.0
- - Package version: 0.1.0
+ - API version: 1.1.0
+ - Package version: 0.2.0
 -- Build package: io.swagger.codegen.languages.PythonClientCodegen
  
  ## Requirements.
@@ -30,7 +30,7 @@ index 24b204f..26d8600 100644
  
  Then import the package:
  ```python
-@@ -42,37 +43,11 @@ import rokka_client_codegen
+@@ -42,35 +43,7 @@ import rokka_client_codegen
  
  ## Getting Started
  
@@ -44,33 +44,30 @@ index 24b204f..26d8600 100644
 -from pprint import pprint
 -
 -# Configure API key authorization: ApiKeyAuth
--rokka_client_codegen.configuration.api_key['api-key'] = 'YOUR_API_KEY'
+-configuration = rokka_client_codegen.Configuration()
+-configuration.api_key['api-key'] = 'YOUR_API_KEY'
 -# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
--# rokka_client_codegen.configuration.api_key_prefix['api-key'] = 'Bearer'
+-# configuration.api_key_prefix['api-key'] = 'Bearer'
+-
 -# create an instance of the API class
--api_instance = rokka_client_codegen.AdminApi()
+-api_instance = rokka_client_codegen.AdminApi(rokka_client_codegen.ApiClient(configuration))
 -role = rokka_client_codegen.Role() # Role | Role specification
 -organization = 'organization_example' # str | 
--email = 'email_example' # str | 
+-user_id = 'user_id_example' # str | 
 -
 -try:
 -    # Add a rokka user into an organization.
--    api_response = api_instance.create_membership(role, organization, email)
+-    api_response = api_instance.create_membership(role, organization, user_id)
 -    pprint(api_response)
 -except ApiException as e:
 -    print("Exception when calling AdminApi->create_membership: %s\n" % e)
 -
 -```
-+Please follow the [installation procedure](#installation--usage) and then see the [examples](examples/)  directory.
++Please follow the [installation procedure](#installation--usage) and then see the [examples](examples/) directory.
  
  ## Documentation for API Endpoints
  
--All URIs are relative to *https://api.rokka.io*
-+All URIs are relative to *https://api.rokka.io/*
- 
- Class | Method | HTTP request | Description
- ------------ | ------------- | ------------- | -------------
-@@ -139,7 +114,5 @@ Class | Method | HTTP request | Description
+@@ -151,7 +124,5 @@ Class | Method | HTTP request | Description
  - **Location**: HTTP header
  
  
